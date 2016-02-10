@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once "login/conexion.php";
-
+//Este es un comentario
 function verificar_login($user,$password,&$result) {
     $sql = "SELECT * FROM usuario WHERE nombre = '$user' and password = '$password'";
     $rec = mysql_query($sql);
