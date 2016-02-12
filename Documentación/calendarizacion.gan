@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Sistema de administración escolar" company="Universidad Tecmilenio - Proyecto integrador de desarrollo de software básico" webLink="http://" view-date="2016-03-11" view-index="0" gantt-divider-location="239" resource-divider-location="460" version="2.0">
+    <description><![CDATA[El sistema de administración escolar, es una solución de software, creada para solventar todas las necesidades de cualquier institución educativa, permitiéndole al usuario tener un control estructo de la información de su personal y alumnos, así como de sus cursos, interaccionando con el CMS Moodle.]]></description>
+    <view zooming-state="default:0" id="gantt-chart"/>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="53" order="0"/>
+        <field id="1" name="Función" width="46" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <calendar id="1" name="default">
+                <default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+                <overriden-day-types/>
+                <days/>
+            </calendar>
+        </day-types>
+    </calendars>
+    <tasks color="#66ffff">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Inicio" color="#66ffff" meeting="false" start="2016-02-09" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="2" name="Montar repositorio" color="#66ffff" meeting="false" start="2016-02-09" duration="2" complete="0" priority="1" expand="true"/>
+        <task id="3" name="Crear calendario" color="#66ffff" meeting="false" start="2016-02-09" duration="2" complete="0" priority="1" expand="true"/>
+        <task id="4" name="Analisis de requerimientos" color="#66ffff" meeting="false" start="2016-02-11" duration="3" complete="0" priority="1" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="Casos de uso" color="#66ffff" meeting="false" start="2016-02-16" duration="4" complete="0" priority="1" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" name="SRS" color="#66ffff" meeting="false" start="2016-02-22" duration="15" complete="0" priority="1" expand="true"/>
+        <task id="11" name="Diseño de interfaces" color="#66ffff" meeting="false" start="2016-02-12" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="5" name="Propuesta" color="#66ffff" meeting="false" start="2016-02-19" duration="2" complete="0" priority="1" expand="true"/>
+        <task id="6" name="Diseño" color="#66ffff" meeting="false" start="2016-02-12" duration="13" complete="0" priority="1" expand="true"/>
+        <task id="7" name="Diseño de la BD" color="#66ffff" meeting="false" start="2016-02-22" duration="7" complete="0" priority="1" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Llenado de la BD" color="#66ffff" meeting="false" start="2016-03-02" duration="3" complete="0" priority="1" expand="true"/>
+        <task id="13" name="Conexion de plataforma-moodle" color="#66ffff" meeting="false" start="2016-02-10" duration="14" complete="0" priority="1" expand="true"/>
+        <task id="15" name="Usuarios y permisos" color="#66ffff" meeting="false" start="2016-02-11" duration="7" complete="0" priority="1" expand="true"/>
+        <task id="14" name="Creación de Login" color="#66ffff" meeting="false" start="2016-02-18" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="30" name="Primer ciclo de pruebas de funcionalidad" color="#ff0000" meeting="false" start="2016-02-15" duration="10" complete="0" priority="1" expand="true"/>
+        <task id="16" name="Administración plan de estudios" color="#66ffff" meeting="false" start="2016-02-22" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="19" name="Master data Profesor" color="#66ffff" meeting="false" start="2016-02-26" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="17" name="ABC Inscripciones" color="#66ffff" meeting="false" start="2016-02-26" duration="12" complete="0" priority="1" expand="true"/>
+        <task id="23" name="Plan de estudios" color="#66ffff" meeting="false" start="2016-02-29" duration="3" complete="0" priority="1" expand="true">
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="22" name="Materias" color="#66ffff" meeting="false" start="2016-03-03" duration="2" complete="0" priority="1" expand="true">
+            <depend id="24" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="24" name="Grupos" color="#66ffff" meeting="false" start="2016-03-07" duration="3" complete="0" priority="1" expand="true"/>
+        <task id="25" name="ABC Espacios físicos" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="20" name="ABC Alumno" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="21" name="Vistas Documentos" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="18" name="ABC Asistencias" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="26" name="ABC Calificaciones" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="27" name="Estado Financiero" color="#66ffff" meeting="false" start="2016-03-07" duration="6" complete="0" priority="1" expand="true"/>
+        <task id="32" name="Segundo ciclo de pruebas de funcionalidad" color="#ff0000" meeting="false" start="2016-03-14" duration="5" complete="0" priority="1" expand="true"/>
+        <task id="35" name="Creación del manual de usuario" color="#66ffff" meeting="false" start="2016-03-15" duration="9" complete="0" priority="1" expand="true"/>
+        <task id="28" name="Generación de documentos" color="#66ffff" meeting="false" start="2016-03-08" duration="5" complete="0" priority="1" expand="true"/>
+        <task id="29" name="Reportes" color="#66ffff" meeting="false" start="2016-03-08" duration="5" complete="0" priority="1" expand="true">
+            <depend id="34" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="34" name="Ciclo de pruebas de calidad" color="#33ff00" meeting="false" start="2016-03-15" duration="5" complete="0" priority="1" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="31" name="Entrega del software" color="#66ffff" meeting="false" start="2016-03-22" duration="1" complete="0" priority="1" expand="true">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" name="Fin" color="#66ffff" meeting="false" start="2016-03-23" duration="1" complete="0" priority="1" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Ricardo Alfredo Torres Sánchez" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Gustavo Farid Ramos López" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="2" name="Farid Zamudio Moreno" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="3" name="Andrés Perez Mauricio" function="SoftwareDevelopment:4" contacts="" phone=""/>
+        <resource id="4" name="Carlos Rivera Flores" function="SoftwareDevelopment:2" contacts="" phone=""/>
+    </resources>
+    <allocations/>
+    <vacations/>
+    <taskdisplaycolumns>
+        <displaycolumn property-id="tpd3" order="0" width="79"/>
+        <displaycolumn property-id="tpd4" order="1" width="73"/>
+        <displaycolumn property-id="tpd5" order="2" width="73"/>
+    </taskdisplaycolumns>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
