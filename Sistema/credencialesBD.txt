@@ -1,0 +1,3 @@
+Usuario:	usuarioe
+Contraseña:	654321
+NombreBD:	escuelapos
