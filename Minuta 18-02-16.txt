@@ -1,0 +1,40 @@
+Andrés entrega Martes 23/02/16
+	Dos interfaces de reportes
+	Revisión de la mitad SRS
+
+Ricardo entrega Martes 23/02/16
+	Interfaz de grupo completa
+	Pantalla de lista de grupos profesor, por día
+	
+	Entrega 18/02/16
+		Casos de uso conexion, grupos, asistencia
+
+Gustavo entrega Martes 23/02/16
+	Casos de uso correspondientes completos
+	Interfaces de inscripción parte administrativo
+		*Lista de grupos
+		*Grupo con lista de inscritos
+		*Inscripción de alumno
+		*Horario de alumno versión para imprimir
+		
+
+Carlos entrega Martes 23/02/16
+	Verificación Casos de uso correspondientes completos
+	Interfaces de log in
+		Entrada (éxito y error)
+		Recuperación de contraseña
+		Mail de alta y recuperación de contraseña
+		Cambio de contraseña
+		Lista de usuarios (Consulta y reset de contraseña, habilitar usuarios)
+	Interfaz estado de cuenta por alumno
+	
+Profe entrega Martes 23/02/16
+	Casos de uso correspondientes completos
+	Interfaces administración de plan de estudios (Consulta y edición)
+	Master Data
+		*Carreras 
+		*Planes de estudio
+		*Materias
+	*Alta de calificaciones (interface)*
+	*Avance curricular*
+		*	
