@@ -1,0 +1,30 @@
+Andrés entrega 3/03/16
+	V2.0 de SRS
+		Versiones de software
+		Problemas de compatibilidad
+		Especificaciones de hardware y funcionales
+	Reportes
+		Calificaciones (Kardex)
+		Calificaciones por periodo
+Gustavo entrega 3/03/16
+	Explicación de casos de uso correspondientes al módulo de inscripción con un ejemplo
+	
+	entrega 8/03/16
+	interfaces inscripciones, y pre-asignación de materias
+
+Profe entrega 3/03/16
+	Subir css productivo
+
+Ricardo entrega 3/03/16
+	Entrega restante de interface
+	Entrega de valores default moodle
+	Entrega de la tabla alumno (5 registros)
+	Investigar codifiación de la BD para moodle
+
+Carlos entrega 3/03/16
+	Interfaces (80%)
+	
+	entrega 8/03/16
+	Login funcional
+		Variable de sesión
+	
