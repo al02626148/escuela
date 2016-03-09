@@ -1,0 +1,31 @@
+Carlos entrega martes 15/mar/16
+	Log in
+		Logear alumno y administrativo
+	Interfaces ya completas
+		Log in
+		Estado de cuenta
+		Reestablecer contraseña
+			Plantilla de correo de recuperación
+
+Gustavo entrega martes 15/mar/16
+	Interfaces de inscripción
+		Inscripción alumno
+			Lista materias que pueden inscribir
+			Horario
+			Lista de grupos de materia
+		Lista de grupos con cupos
+		Lista de alumnos en grupo
+		Horario del alumno
+
+Andrés entrega martes 15/mar/16
+	SRS completo
+		Incluyendo casos de uso
+
+Ricardo entrega martes 15/ma/16
+	Interface
+		pase de lista
+			Tabla con informacion
+			Lista de alumnos con checkbox
+	Vista de curso
+	Avances en inscripciones
+				
