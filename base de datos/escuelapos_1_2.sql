@@ -2,10 +2,10 @@
 -- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost:8889
--- Tiempo de generación: 09-03-2016 a las 03:34:30
+-- Servidor: localhost
+-- Tiempo de generación: 11-03-2016 a las 02:31:33
 -- Versión del servidor: 5.5.42
--- Versión de PHP: 5.6.10
+-- Versión de PHP: 7.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -271,6 +271,21 @@ CREATE TABLE `horario` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `inscripcion`
+--
+
+CREATE TABLE `inscripcion` (
+  `id_inscripcion` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `habilitado` varchar(45) NOT NULL,
+  `id_administrativo` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `materia`
 --
 
@@ -293,14 +308,6 @@ INSERT INTO `materia` (`id_materia`, `nombre`, `habilitado`, `creditos`, `abrevi
 (3, 'Educación Física', 1, 6, 'EF', 'Clase de eduación física'),
 (4, 'Educación para la salud', 1, 6, 'ESALUD', 'Clase de educación para la salud'),
 (5, 'Historia', 1, 6, 'HIST', 'Clase de historia');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia_plan_estudios`
---
--- en uso(#1146 - Table 'escuelapos.materia_plan_estudios' doesn't exist)
--- Error leyendo datos: (#1146 - Table 'escuelapos.materia_plan_estudios' doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -389,14 +396,6 @@ INSERT INTO `plan_estudios` (`id_plan`, `nombre`, `abreviatura`, `fecha_alta`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `plan_estudios_alumno`
---
--- en uso(#1146 - Table 'escuelapos.plan_estudios_alumno' doesn't exist)
--- Error leyendo datos: (#1146 - Table 'escuelapos.plan_estudios_alumno' doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `profesor`
 --
 
@@ -422,6 +421,19 @@ INSERT INTO `profesor` (`id_profesor`, `nombre`, `apellido`, `email`, `contrasen
 (3, 'Paola', 'Davila Mora', 'pdm@gmail.com', '34567', '1980-01-22', 2147483647, 1, 0),
 (4, 'Mariana', 'Martinez Lopez', 'mml@gmail.com', '45678', '1980-01-23', 2147483647, 1, 0),
 (5, 'Farid', 'Zamudio Moreno', 'fzm@gmail.com', '56789', '1980-01-24', 2147483647, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisitos`
+--
+
+CREATE TABLE `requisitos` (
+  `id_requisitos` int(11) NOT NULL,
+  `id_materia_relacion` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL,
+  `tipo_relacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -555,6 +567,15 @@ ALTER TABLE `horario`
   ADD KEY `fk_horario_curso1_idx` (`id_curso`);
 
 --
+-- Indices de la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  ADD PRIMARY KEY (`id_inscripcion`,`id_curso`,`id_alumno`),
+  ADD KEY `fk_inscripcion_curso1_idx` (`id_curso`),
+  ADD KEY `fk_inscripcion_alumno1_idx` (`id_alumno`),
+  ADD KEY `fk_inscripcion_administrativo1_idx` (`id_administrativo`);
+
+--
 -- Indices de la tabla `materia`
 --
 ALTER TABLE `materia`
@@ -602,6 +623,13 @@ ALTER TABLE `plan_estudios`
 ALTER TABLE `profesor`
   ADD PRIMARY KEY (`id_profesor`,`id_domicilio`),
   ADD KEY `fk_profesor_domicilio1_idx` (`id_domicilio`);
+
+--
+-- Indices de la tabla `requisitos`
+--
+ALTER TABLE `requisitos`
+  ADD PRIMARY KEY (`id_requisitos`,`id_materia`),
+  ADD KEY `fk_requisitos_materia1_idx` (`id_materia`);
 
 --
 -- Indices de la tabla `tipo_pago`
@@ -671,6 +699,11 @@ ALTER TABLE `evaluacion`
 ALTER TABLE `horario`
   MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  MODIFY `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
@@ -700,6 +733,11 @@ ALTER TABLE `plan_estudios`
 --
 ALTER TABLE `profesor`
   MODIFY `id_profesor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `requisitos`
+--
+ALTER TABLE `requisitos`
+  MODIFY `id_requisitos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tipo_pago`
 --
@@ -732,8 +770,8 @@ ALTER TABLE `archivo`
 --
 ALTER TABLE `curso`
   ADD CONSTRAINT `fk_curso_materia1` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_curso_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_curso_periodo1` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_curso_periodo1` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_curso_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `evaluacion`
@@ -745,37 +783,51 @@ ALTER TABLE `evaluacion`
 -- Filtros para la tabla `formacion`
 --
 ALTER TABLE `formacion`
-  ADD CONSTRAINT `fk_formacion_niveled1` FOREIGN KEY (`id_niveled`) REFERENCES `niveled` (`id_niveled`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_formacion_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_formacion_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_formacion_niveled1` FOREIGN KEY (`id_niveled`) REFERENCES `niveled` (`id_niveled`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `horario`
 --
 ALTER TABLE `horario`
-  ADD CONSTRAINT `fk_horario_espacio_fisico1` FOREIGN KEY (`id_espacio`) REFERENCES `espacio_fisico` (`id_espacio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_horario_curso1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_horario_curso1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_horario_espacio_fisico1` FOREIGN KEY (`id_espacio`) REFERENCES `espacio_fisico` (`id_espacio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  ADD CONSTRAINT `fk_inscripcion_administrativo1` FOREIGN KEY (`id_administrativo`) REFERENCES `administrativo` (`id_administrativo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_inscripcion_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_inscripcion_curso1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `pago`
 --
 ALTER TABLE `pago`
+  ADD CONSTRAINT `fk_pagos_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_pagos_tipo_pagos1` FOREIGN KEY (`id_tipo_pago`) REFERENCES `tipo_pago` (`id_tipo_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_pagos_usuarios1` FOREIGN KEY (`id_administrativo`) REFERENCES `administrativo` (`id_administrativo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_pagos_alumno1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_pago_clase_pago1` FOREIGN KEY (`id_clase_pago`) REFERENCES `clase_pago` (`id_clase_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `pago_has_archivo`
 --
 ALTER TABLE `pago_has_archivo`
-  ADD CONSTRAINT `fk_pago_has_archivo_pago1` FOREIGN KEY (`id_pago`) REFERENCES `pago` (`id_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_pago_has_archivo_archivo1` FOREIGN KEY (`id_archivo`) REFERENCES `archivo` (`id_archivo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_pago_has_archivo_archivo1` FOREIGN KEY (`id_archivo`) REFERENCES `archivo` (`id_archivo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pago_has_archivo_pago1` FOREIGN KEY (`id_pago`) REFERENCES `pago` (`id_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `profesor`
 --
 ALTER TABLE `profesor`
   ADD CONSTRAINT `fk_profesor_domicilio1` FOREIGN KEY (`id_domicilio`) REFERENCES `domicilio` (`id_domicilio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `requisitos`
+--
+ALTER TABLE `requisitos`
+  ADD CONSTRAINT `fk_requisitos_materia1` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `trabajo`
