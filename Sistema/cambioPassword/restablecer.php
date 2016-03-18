@@ -1,11 +1,25 @@
+<?php 
+	$token = $_GET['token'];
+	$idusuario = $_GET['idusuario'];
+	
+	$conexion = new mysqli('localhost', 'root', 'root', 'escuelapos');
+
+	$sql = "SELECT * FROM tblreseteopass WHERE token = '$token'";
+	$resultado = $conexion->query($sql);
+	
+	if( $resultado->num_rows > 0 ){
+		$usuario = $resultado->fetch_assoc();
+
+		if( sha1($usuario['idusuario']) == $idusuario ){
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta name="author" content="denker">
     <title> Restablecer contraseña </title>
-    <link href="plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="plugin/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="plugin/bootstrap/css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -42,3 +56,13 @@
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php
+		}
+		else{
+			header('Location:index.html');
+		}
+	}
+	else{
+		header('Location:index.html');
+	}
+?>

@@ -3,7 +3,7 @@ session_start();
 include_once "conexion.php";
 
 function verificar_login($user,$password,&$result) {
-    $sql = "SELECT * FROM alumno WHERE email= '$user' and contrasena = '$password'";
+    $sql = "SELECT * FROM alumno, administrativo, profesor WHERE email= '$user' and contrasena = '$password'";
     $rec = mysql_query($sql);
     $count = 0;
 
