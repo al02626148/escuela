@@ -46,7 +46,6 @@
                         <thead>
                             <tr>
                                 <TH>ID Grupo</TH>
-                                <th>Hora</th>
                                 <th>Lu</th>
                                 <th>Ma</th>
                                 <th>Mi</th>
@@ -77,6 +76,7 @@
                                 <th>ID Grupo</th>
                                 <th>Día</th>
                                 <th>Hora</th>
+                                <th>Cupo</th>
                             </tr>
                         </thead>
                     </table>
