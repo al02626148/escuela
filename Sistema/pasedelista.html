@@ -23,78 +23,82 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
+<body>
+
 
         <div class="container">
             <div class="col-lg-12 text-center">
-                <h2>Lista de grupor por profesor</h2>
+                <h2>Pase de lista para el grupo 'Nombre del grupo'</h2>
             </div>
         </div>
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-5"><h3>'Nombre de usuario'</h3></div>
+                <div class="col-md-5"><h3>'Nombre de profesor'</h3></div>
                 <div class="col-md-5"><h3>'Última actualización'</h3></div>
                 <div class="col-md-1"></div>
             </div>
             <div class="col-lg-12 text-center">
-                <h2>Lista de grupos asignados a 'Nombre del profesor'</h2>
+                <h2>Lista de alumnos inscritos en 'Nombre del grupo'</h2>
 
             </div>
-
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-4 text-center">
+            </div>
+            <div class="col-lg-4 text-center">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th># Grupo</th>
-                                <th>Nombre del grupo</th>
-                                <th>Curso</th>
-                                <th>Periodo</th>
-                                <th>Días</th>
-                                <th>Hora</th>
-                                <th>Lugar</th>
+                                <th>#</th>
+                                <th>Nombre del alumno</th>
+                                <th>Carrera</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">001</th>
-                                <td>Administración 1</td>
-                                <td>Administración empresarial</td>
-                                <td>Ene-May16</td>
-                                <td>L M M J V S</td>
-                                <td>8:00 a.m. / 9:30 a.m.</td>
-                                <td>Aula 2401</td>
-                                <td><button type="button" class="btn btn-primary">Pase de lista</button></td>
-                                <td><button type="button" class="btn btn-primary">Control de evaluación</button></td>
+                                <td>Alfonso Zamora</td>
+                                <td>Derecho</td>
+                                <td><div class="radio">
+                                    <label>
+                                        <input type="radio" name="asistencia" id="asistencia_1" value="1">
+                                    </label>
+                                </div></td>
                             </tr>
                         </tbody>
                         <tbody>
                             <tr>
                                 <th scope="row">001</th>
-                                <td>Administración 1</td>
-                                <td>Administración empresarial</td>
-                                <td>Ene-May16</td>
-                                <td>L M M J V S</td>
-                                <td>8:00 a.m. / 9:30 a.m.</td>
-                                <td>Aula 2401</td>
-                                <td><button type="button" class="btn btn-primary">Pase de lista</button></td>
-                                <td><button type="button" class="btn btn-primary">Control de evaluación</button></td>
+                                <td>Alfonso Zamora</td>
+                                <td>Derecho</td>
+                                <td><div class="radio">
+                                    <label>
+                                        <input type="radio" name="asistencia" id="asistencia_1" value="1">
+                                    </label>
+                                </div></td>
                             </tr>
                         </tbody>
                         <tbody>
                             <tr>
                                 <th scope="row">001</th>
-                                <td>Administración 1</td>
-                                <td>Administración empresarial</td>
-                                <td>Ene-May16</td>
-                                <td>L M M J V S</td>
-                                <td>8:00 a.m. / 9:30 a.m.</td>
-                                <td>Aula 2401</td>
-                                <td><button type="button" class="btn btn-primary">Pase de lista</button></td>
-                                <td><button type="button" class="btn btn-primary">Control de evaluación</button></td>
+                                <td>Alfonso Zamora</td>
+                                <td>Derecho</td>
+                                <td><div class="radio">
+                                    <label>
+                                        <input type="radio" name="asistencia" id="asistencia_1" value="1">
+                                    </label>
+                                </div></td>
                             </tr>
                         </tbody>
                     </table>
             </div>
+            <div class="col-lg-4 text-center">
+            </div>
         </div>
+    <div class="container">
+      <h2>¡Atención!</h2>
+      <p>Solo se puede hacer el pase de lista una vez por día, asegúrese de que todos los alumnos presentes están marcados en esta ventana</p>            
+      <button type="button" class="btn btn-info btn-block">OK</button>
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
