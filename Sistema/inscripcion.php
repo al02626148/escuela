@@ -64,6 +64,7 @@
                                 <th>Id Curso</th>
                                 <th>Nombre del curso</th>
                                 <th>Descripción del curso</th>
+                                <th></th>
                             </tr>
                         </thead>
                     </table>
